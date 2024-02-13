@@ -28,12 +28,8 @@ export default function Layout() {
         }
     })
 
-    const base = css({
-        background: '$lime3',
-    })
-
     return (
-        <div className={base()}>
+        <div>
             <nav className={navStyles()}>
                 <h1 className={button()}>Kiddies</h1>
 

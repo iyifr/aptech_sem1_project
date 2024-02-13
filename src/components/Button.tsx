@@ -39,7 +39,16 @@ const Button = styled('button', {
                 },
             },
             neutral: {
-                bg: '$olive3'
+                bg: '$olive12',
+                width: 'auto',
+                px: 24,
+                fontWeight: 600,
+                color: '$lime10',
+                height: 44,
+                '&:hover': {
+                    bg: '$olive11',
+                    color: '$lime10'
+                },
             }
         },
         outlined: {
