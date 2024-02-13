@@ -1,13 +1,16 @@
+import { Link } from "@tanstack/react-router"
 import { css } from "../../stitches.config"
 import { Button } from "./Button"
-import ImageCarousel from "./ImageCarousel"
 
 const HeroSection = () => {
 
     return <div className={hero()}>
         <section className={css({ flexCont: true, alignItems: 'center', flexDirection: 'column', gap: 12, width: '100%' })()}>
             <h2 className={text}>Simple and delightful lessons for kids</h2>
-            <Button className={css({ mx: 'auto', marginTop: 22 })()} mode={"neutral"}>Start a lesson</Button>
+
+            <Link to="/alphabet">
+                <Button className={css({ mx: 'auto', marginTop: 22 })()} mode={"neutral"}>Start a lesson </Button>
+            </Link>
         </section>
     </div>
 }

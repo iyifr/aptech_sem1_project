@@ -1,5 +1,4 @@
 import { css } from "../stitches.config"
-import { Button } from "./components/Button"
 
 export default function Layout() {
 
@@ -28,12 +27,18 @@ export default function Layout() {
         }
     })
 
+    const linkstyles = css({ flexCont: true, flexDirection: 'row', gap: 34, '@md': { display: 'hidden' } })()
     return (
         <div>
             <nav className={navStyles()}>
                 <h1 className={button()}>Kiddies</h1>
 
-                <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
+                <div className={linkstyles}>
+                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Nursery Rhymes</p>
+                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Math Lessons</p>
+                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6, fontWeight: 'bold' } })()}>Quizzes</p>
+                    <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
+                </div>
             </nav>
         </div>
 

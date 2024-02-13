@@ -43,7 +43,7 @@ const ImageCarousel = () => {
     })()
 
 
-    const images = [I1, I2, I3, I4, I3, I1]
+    const images = [I1, I2, I3, I4]
 
     return <section className={sectionstyles} data-animated={!prefersReducedMotion}>
         <section className={innerstyles} data-animated={!prefersReducedMotion}>
