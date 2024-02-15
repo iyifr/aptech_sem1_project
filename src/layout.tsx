@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router"
 import { css } from "../stitches.config"
 
 export default function Layout() {
@@ -13,7 +14,7 @@ export default function Layout() {
 
     const navStyles = css({
         py: 12,
-        maxWidth: '82rem',
+        maxWidth: '84rem',
         mx: 'auto',
         flexCont: true,
         flexDirection: 'row',
@@ -27,11 +28,14 @@ export default function Layout() {
         }
     })
 
-    const linkstyles = css({ flexCont: true, flexDirection: 'row', gap: 34, '@md': { display: 'hidden' } })()
+    const linkstyles = css({ flexCont: true, flexDirection: 'row', gap: 34, '@md': { display: 'none' } })()
     return (
         <div>
             <nav className={navStyles()}>
-                <h1 className={button()}>Kiddies</h1>
+
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                    <h1 className={button()}>Kiddies</h1>
+                </Link>
 
                 <div className={linkstyles}>
                     <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Nursery Rhymes</p>
