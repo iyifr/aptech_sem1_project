@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router"
 import { css } from "../stitches.config"
+import NavLink from "./components/NavLink"
 
 export default function Layout() {
 
@@ -38,8 +39,15 @@ export default function Layout() {
                 </Link>
 
                 <div className={linkstyles}>
-                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Nursery Rhymes</p>
-                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Math Lessons</p>
+                    <NavLink to={"/nursery-rhymes/bingo"}>
+                        <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Nursery Rhymes</p>
+                    </NavLink>
+
+                    <NavLink to="/numbers">
+                        <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', fontWeight: 'bold', textUnderlineOffset: 6 } })()}>Math Lessons</p>
+                    </NavLink>
+
+
                     <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6, fontWeight: 'bold' } })()}>Quizzes</p>
                     <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
                 </div>

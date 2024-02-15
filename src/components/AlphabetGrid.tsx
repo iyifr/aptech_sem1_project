@@ -1,18 +1,31 @@
+import { useState } from "react"
 import { css, styled } from "../../stitches.config"
 
 const AlphabetGrid = () => {
+    const [isUpperCase, setIsUpperCase] = useState(true)
 
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-    const alphabetCharacters = alphabet.split('')
+    const alphabetCharacters = isUpperCase ? alphabet.split('') : alphabet.toLocaleLowerCase().split('')
 
-    return <section className={gridStyles}>
-        {
-            alphabetCharacters.map((item) => (
-                <GridItem> {item} </GridItem>
-            ))
-        }
-    </section>
+    const handleToggle = () => {
+        setIsUpperCase((isUpperCase) => !isUpperCase)
+    }
+
+    return <>
+        <span style={{ marginTop: 24, display: 'flex', alignItems: 'center', flexDirection: 'row', gap: 12 }}>
+            <p>lower case letters</p>
+            <input type="checkbox" style={{ marginBlock: 5 }} onChange={(e) => handleToggle()} />
+        </span>
+
+        <section className={gridStyles}>
+            {
+                alphabetCharacters.map((item) => (
+                    <GridItem> {item} </GridItem>
+                ))
+            }
+        </section>
+    </>
 }
 
 
@@ -24,7 +37,8 @@ const gridStyles = css({
     flexWrap: 'wrap',
 
     '@md': {
-        gap: 6
+        columnGap: 24,
+        rowGap: 18
     }
 })()
 
@@ -40,8 +54,12 @@ const GridItem = styled("div", {
     justifyContent: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: '$lime12'
+    color: '$lime12',
 
+    '@md': {
+        height: 70,
+        width: 100,
+    }
 })
 
 

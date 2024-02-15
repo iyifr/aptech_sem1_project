@@ -1,18 +1,50 @@
+import { Link } from "@tanstack/react-router"
 import { css, styled } from "../../stitches.config"
+import { Button } from "./Button"
 
 const NumbersGrid = () => {
+    const searchParams = new URLSearchParams(location.search)
+    let rangeString = '0 - 9'
 
-    const numbers = '0123456789'
-
-    const numberGroup = numbers.split('')
-
-    return <section className={gridStyles}>
-        {
-            numberGroup.map((item) => (
-                <GridItem> {item} </GridItem>
-            ))
+    if (searchParams.has("range")) {
+        for (const value of searchParams.values()) {
+            rangeString = value;
         }
-    </section>
+    }
+
+    const split = rangeString.split('-')
+
+    const largerNumbersGroup = Array.from({ length: 101 }, (value, index) => index);
+    const top = parseInt(split[0])
+    const bottom = parseInt(split[1])
+
+    return <>
+        <h3 style={{ marginBlock: 12, fontWeight: 400 }}>Practice numbers : {split[0]} - {split[1]}</h3>
+        <p style={{ color: 'gray' }}>Practice drawing the numbers in your notebook *</p>
+        <section className={gridStyles}>
+
+            {
+                largerNumbersGroup.slice(top, bottom + 1).map((item) => (
+                    <GridItem> {item} </GridItem>
+                ))
+            }
+        </section>
+
+        <span className={nextLessonBtn}>
+            {
+                parseInt(split[1]) + 1 > 100 ?
+                    <Link to="/">
+                        <Button>Finish lesson</Button>
+                    </Link>
+
+                    : <Link to="/numbers" search={{ range: `${top + 10}-${bottom + 10}` }}>
+                        <Button>
+                            Next lesson
+                        </Button>
+                    </Link>
+            }
+        </span>
+    </>
 }
 
 
@@ -24,7 +56,8 @@ const gridStyles = css({
     flexWrap: 'wrap',
 
     '@md': {
-        gap: 6
+        columnGap: 24,
+        rowGap: 18
     }
 })()
 
@@ -40,9 +73,15 @@ const GridItem = styled("div", {
     justifyContent: 'center',
     fontSize: 24,
     fontWeight: 'bold',
-    color: '$lime12'
+    color: '$lime12',
 
+    '@md': {
+        height: 70,
+        width: 100,
+    }
 })
+
+const nextLessonBtn = css({ flexCont: true, alignItems: 'end', py: 24, paddingLeft: '68rem', '@md': { paddingLeft: '1rem' } })()
 
 
 export default NumbersGrid

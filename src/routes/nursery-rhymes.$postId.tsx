@@ -21,7 +21,7 @@ function NurseryRhymePost() {
     });
 
     return <section className={css({ maxWidth: '45rem', mx: 'auto', my: 64, lineHeight: 2.8 })()}>
-        <h2 style={{ fontSize: 28, color: '$lime12' }}>Nursery Rhyme: {postId.toLocaleUpperCase()} </h2>
+        <h2 style={{ fontSize: 28, color: '$lime10' }}>Nursery Rhyme: {postId.toLocaleUpperCase()} </h2>
         <Balancer>
             <Markdown children={post} />
         </Balancer>
