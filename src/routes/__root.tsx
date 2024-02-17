@@ -10,8 +10,9 @@ const appBg = css({
 export const Route = createRootRoute({
     component: () => (
         <div className={appBg()}>
-            <Layout />
-            <Outlet />
+            <Layout>
+                <Outlet />
+            </Layout>
         </div>
     ),
 })

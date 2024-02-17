@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router"
 import { css } from "../stitches.config"
 import NavLink from "./components/NavLink"
 
-export default function Layout() {
+export default function Layout({ children }: { children: React.ReactNode }) {
 
     const button = css({
         color: '$lime12',
@@ -21,6 +21,9 @@ export default function Layout() {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        position: 'sticky',
+        top: 0,
+        backdropFilter: 'blur(12px)',
 
         '@md': {
             py: 16,
@@ -48,10 +51,14 @@ export default function Layout() {
                     </NavLink>
 
 
-                    <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6, fontWeight: 'bold' } })()}>Quizzes</p>
+                    <NavLink to="/quiz">
+                        <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6, fontWeight: 'bold' } })()}>Quizzes</p>
+                    </NavLink>
+
                     <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
                 </div>
             </nav>
+            {children}
         </div>
 
     )

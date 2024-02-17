@@ -20,9 +20,13 @@ function NurseryRhymePost() {
             .catch(err => console.log(err));
     });
 
-    return <section className={css({ maxWidth: '45rem', mx: 'auto', my: 64, lineHeight: 2.8 })()}>
-        <h2 style={{ fontSize: 28, color: '$lime10' }}>Nursery Rhyme: {postId.toLocaleUpperCase()} </h2>
-        <Balancer>
+    return <section className={css({ maxWidth: '48rem', mx: 'auto', mt: 64, paddingBottom: 44, lineHeight: 2.8, fontSize: 22, fontWeight: 'semibold', '@md': { fontSize: 16, maxWidth: '32rem' }, '@sm': { maxWidth: '20rem' } })()}>
+        <h2 className={css({ fontSize: 28, color: '$lime12', my: 12, '@md': { fontSize: 20 } })()}>
+            <Balancer>
+                <p style={{ textTransform: 'capitalize' }}>{postId.split('-').join(' ')}</p>
+            </Balancer>
+        </h2>
+        <Balancer >
             <Markdown children={post} />
         </Balancer>
     </section>

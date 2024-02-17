@@ -8,7 +8,7 @@ const NumbersGrid = () => {
 
     if (searchParams.has("range")) {
         for (const value of searchParams.values()) {
-            rangeString = value;
+            value !== '100-109' ? rangeString = value : rangeString = '100-100';
         }
     }
 
@@ -61,7 +61,7 @@ const gridStyles = css({
     }
 })()
 
-const GridItem = styled("div", {
+export const GridItem = styled("div", {
     bg: '$lime4',
     borderRadius: 24,
     height: 140,

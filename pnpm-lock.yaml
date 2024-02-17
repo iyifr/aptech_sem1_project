@@ -23,6 +23,9 @@ dependencies:
   '@tanstack/react-router':
     specifier: ^1.16.0
     version: 1.16.0(react-dom@18.2.0)(react@18.2.0)
+  lucide-react:
+    specifier: ^0.331.0
+    version: 0.331.0(react@18.2.0)
   markdown-to-jsx:
     specifier: ^7.4.1
     version: 7.4.1(react@18.2.0)
@@ -1376,6 +1379,14 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
+
+  /lucide-react@0.331.0(react@18.2.0):
+    resolution: {integrity: sha512-CHFJ0ve9vaZ7bB2VRAl27SlX1ELh6pfNC0jS96qGpPEEzLkLDGq4pDBFU8RhOoRMqsjXqTzLm9U6bZ1OcIHq7Q==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /markdown-to-jsx@7.4.1(react@18.2.0):
     resolution: {integrity: sha512-GbrbkTnHp9u6+HqbPRFJbObi369AgJNXi/sGqq5HRsoZW063xR1XDCaConqq+whfEIAlzB1YPnOgsPc7B7bc/A==}
