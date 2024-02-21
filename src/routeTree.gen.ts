@@ -21,6 +21,7 @@ import { Route as NurseryRhymesPostIdImport } from './routes/nursery-rhymes.$pos
 
 const QuizLazyImport = createFileRoute('/quiz')()
 const NumbersLazyImport = createFileRoute('/numbers')()
+const ContactLazyImport = createFileRoute('/contact')()
 const AlphabetLazyImport = createFileRoute('/alphabet')()
 const IndexLazyImport = createFileRoute('/')()
 
@@ -35,6 +36,11 @@ const NumbersLazyRoute = NumbersLazyImport.update({
   path: '/numbers',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/numbers.lazy').then((d) => d.Route))
+
+const ContactLazyRoute = ContactLazyImport.update({
+  path: '/contact',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/contact.lazy').then((d) => d.Route))
 
 const AlphabetLazyRoute = AlphabetLazyImport.update({
   path: '/alphabet',
@@ -73,6 +79,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AlphabetLazyImport
       parentRoute: typeof rootRoute
     }
+    '/contact': {
+      preLoaderRoute: typeof ContactLazyImport
+      parentRoute: typeof rootRoute
+    }
     '/numbers': {
       preLoaderRoute: typeof NumbersLazyImport
       parentRoute: typeof rootRoute
@@ -101,6 +111,7 @@ declare module '@tanstack/react-router' {
 export const routeTree = rootRoute.addChildren([
   IndexLazyRoute,
   AlphabetLazyRoute,
+  ContactLazyRoute,
   NumbersLazyRoute,
   QuizLazyRoute.addChildren([QuizGameRoute, QuizIndexRoute]),
   NurseryRhymesPostIdRoute,

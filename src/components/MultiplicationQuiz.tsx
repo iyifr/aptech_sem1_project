@@ -19,7 +19,7 @@ const MultiplicationGame = () => {
 
 export default MultiplicationGame
 
-const QuizRow = ({ num1, num2 }: { num1: number, num2: number }) => {
+export const QuizRow = ({ num1, num2 }: { num1: number, num2: number }) => {
     const [isCorrectValue, setIsCorrectValue] = useState<boolean | null>(null)
 
     const handleChange = (res: string) => {

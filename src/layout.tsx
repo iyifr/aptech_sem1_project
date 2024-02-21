@@ -55,7 +55,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         <p className={css({ color: '$lime12', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6, fontWeight: 'bold' } })()}>Quizzes</p>
                     </NavLink>
 
-                    <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
+                    <NavLink to="/contact">
+                        <p className={css({ color: '$lime12', fontWeight: 'bold', cursor: 'pointer', '&:hover': { textDecoration: 'underline', textUnderlineOffset: 6 } })()}>Contact us</p>
+                    </NavLink>
                 </div>
             </nav>
             {children}
