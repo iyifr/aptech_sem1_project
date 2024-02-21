@@ -6,12 +6,13 @@ const AdditionQuiz = () => {
     return <>
         <h2 style={{ marginBlock: 35 }}>Solve addition problems!</h2>
         <QuizRow num1={1} num2={1} />
-        <QuizRow num1={2} num2={2} />
-        <QuizRow num1={3} num2={3} />
-        <QuizRow num1={4} num2={4} />
-        <QuizRow num1={5} num2={5} />
-        <QuizRow num1={6} num2={6} />
-        <QuizRow num1={7} num2={7} />
+        <QuizRow num1={1} num2={2} />
+        <QuizRow num1={1} num2={3} />
+        <QuizRow num1={1} num2={4} />
+        <QuizRow num1={1} num2={5} />
+        <QuizRow num1={1} num2={6} />
+        <QuizRow num1={1} num2={7} />
+        <QuizRow num1={1} num2={8} />
     </>
 }
 export default AdditionQuiz

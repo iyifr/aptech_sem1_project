@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import AdditionQuiz from "../components/AdditionQuiz";
+import MultiplicationGame from "../components/MultiplicationQuiz";
 
 export const Route = createFileRoute("/quiz/$game")({
     component: Game,
@@ -14,6 +15,9 @@ function Game() {
     switch (game) {
         case 'Addition': {
             return <AdditionQuiz />
+        }
+        case 'Multiplication': {
+            return <MultiplicationGame />
         }
         default: {
             return <div />
