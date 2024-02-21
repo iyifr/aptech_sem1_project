@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <nav className={navStyles()}>
 
                 <Link to='/' style={{ textDecoration: 'none' }}>
-                    <h1 className={button()}>Kiddies</h1>
+                    <h1 className={button()}>Kids Zone</h1>
                 </Link>
 
                 <div className={linkstyles}>

@@ -5,7 +5,13 @@ import { Plus } from 'lucide-react'
 const AdditionQuiz = () => {
     return <>
         <h2 style={{ marginBlock: 35 }}>Solve addition problems!</h2>
-        <QuizRow num1={12} num2={12} />
+        <QuizRow num1={1} num2={1} />
+        <QuizRow num1={2} num2={2} />
+        <QuizRow num1={3} num2={3} />
+        <QuizRow num1={4} num2={4} />
+        <QuizRow num1={5} num2={5} />
+        <QuizRow num1={6} num2={6} />
+        <QuizRow num1={7} num2={7} />
     </>
 }
 export default AdditionQuiz
@@ -29,23 +35,22 @@ const QuizRow = ({ num1, num2 }: { num1: number, num2: number }) => {
         },
 
     })()
-    return <section>
+    return <section className={css({ mx: 14 })()}>
         <div className={css({
             display: 'flex',
-            gap: 12,
+            gap: 14,
             flexDirection: 'row',
             alignItems: 'center',
-            my: 12
+            my: 18
         })()}>
             <GridItem css={{ width: 65, height: 60 }}>{num1}</GridItem>
             <Plus />
             <GridItem css={{ width: 65, height: 60 }}>{num2}</GridItem>
             <span>{"="}</span>
             <input className={inputStyles} onChange={(e) => handleChange(e.target.value)} />
+            <span>
+                {isCorrectValue === true ? <p>Correct!</p> : isCorrectValue === null ? null : <p>WRONG!</p>}
+            </span>
         </div>
-
-        <span>
-            {isCorrectValue === true ? <p>Correct!</p> : isCorrectValue === null ? null : <p>WRONG!</p>}
-        </span>
     </section>
 }

@@ -16,7 +16,7 @@ function Game() {
             return <AdditionQuiz />
         }
         default: {
-            return <p>Null bitch</p>
+            return <div />
         }
     }
 

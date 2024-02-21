@@ -13,7 +13,6 @@ function Quiz() {
 
     return <section className={css({ maxWidth: '64rem', mx: 'auto', my: 24 })()}>
 
-        {/* Display Quiz Select */}
         {!game ? <PickQuiz /> :
             <>
 
